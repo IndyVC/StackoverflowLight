@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using StackoverflowLight.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StackoverflowLight.Domain.Repositories;
+using StackoverflowLight.Data.Repositories;
 
 namespace StackoverflowLight
 {
@@ -44,6 +46,8 @@ namespace StackoverflowLight
 
             services.AddScoped<DataInitializer>();
             services.AddScoped<UserManager<IdentityUser>>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

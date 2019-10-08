@@ -12,7 +12,7 @@ namespace StackoverflowLight.Domain
         public Question Question { get; set; }
         #endregion
         #region constructor
-        public Comment() : base("", "") { }
+        public Comment() : base("fill", "fill") { }
         public Comment(Question question,string description, string username) : base(description, username)
         {
             Question = question;

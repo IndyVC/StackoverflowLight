@@ -31,7 +31,7 @@ namespace StackoverflowLight.Domain
         public ICollection<Comment> Comments { get; set; }
         #endregion
         #region construcor
-        public Question() : base("", "") { }
+        public Question() : base("fill", "fill") { }
         public Question(string title,string description, string username) : base(description, username){
             this.Comments = new List<Comment>();
             this.Title = title;

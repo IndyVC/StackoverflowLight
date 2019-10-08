@@ -4,15 +4,26 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StackoverflowLight.Domain;
+using StackoverflowLight.Domain.Repositories;
 using StackoverflowLight.Models;
 
 namespace StackoverflowLight.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IQuestionRepository questionRepo;
+
+        public HomeController(IQuestionRepository questionRepository)
+        {
+            this.questionRepo = questionRepository;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.Upvotes).ToList();
+
+            return View(questions);
         }
 
         public IActionResult Privacy()
