@@ -12,6 +12,7 @@ namespace StackoverflowLight.Domain
 
 
         #region properties
+        public int QuestionId { get; set; }
         public string Title {
             get {
                 return this._title;
@@ -30,7 +31,8 @@ namespace StackoverflowLight.Domain
         public ICollection<Comment> Comments { get; set; }
         #endregion
         #region construcor
-        public Question(string description, string title) : base(description){
+        public Question() : base("", "") { }
+        public Question(string title,string description, string username) : base(description, username){
             this.Comments = new List<Comment>();
             this.Title = title;
         }

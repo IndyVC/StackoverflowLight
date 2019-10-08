@@ -23,9 +23,7 @@ namespace StackoverflowLight.Data
             context.Database.EnsureDeleted();
             if (context.Database.EnsureCreated())
             {
-                User user = new User("indyvancanegem@hotmail.com");
-                context.Users.Add(user);
-                context.SaveChanges();
+                
 
 
             }

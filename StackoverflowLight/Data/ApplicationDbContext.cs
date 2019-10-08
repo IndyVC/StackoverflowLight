@@ -10,7 +10,8 @@ namespace StackoverflowLight.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -20,7 +21,8 @@ namespace StackoverflowLight.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration(new UserMapper());
+            builder.ApplyConfiguration(new QuestionMapper());
+            builder.ApplyConfiguration(new CommentMapper());
         }
 
     }
