@@ -30,12 +30,12 @@ namespace StackoverflowLight.Data.Repositories
 
         public ICollection<Question> GetAllQuestions()
         {
-            return questions.Include(q=>q.Comments).ToList();
+            return questions.Include(q=>q.Comments).Include(q=>q.UpvotedBy).Include(q=>q.DownvotedBy).ToList();
         }
 
         public Question GetQuestionById(int id)
         {
-            return questions.Include(q=>q.Comments).Where(q => q.QuestionId == id).FirstOrDefault();
+            return questions.Include(q=>q.Comments).Include(q => q.UpvotedBy).Include(q => q.DownvotedBy).Where(q => q.QuestionId == id).FirstOrDefault();
         }
 
         public void SaveChanges()

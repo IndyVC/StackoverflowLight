@@ -28,14 +28,16 @@ namespace StackoverflowLight.Domain
                 }
             }
         }
-        public int Upvotes { get; set; }
-        public int Downvotes { get; set; }
+        public List<IdentityUser> UpvotedBy { get; set; }
+        public List<IdentityUser> DownvotedBy { get; set; }
         public string Username { get; set; }
         #endregion
 
         #region constructor
         protected Post(string description, string username)
         {
+            UpvotedBy = new List<IdentityUser>();
+            DownvotedBy = new List<IdentityUser>();
             Description = description;
             Username = username;
         } 
