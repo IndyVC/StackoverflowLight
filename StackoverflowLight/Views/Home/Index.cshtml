@@ -3,12 +3,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-@foreach(var question in Model)
+@foreach (var question in Model)
 {
-    <h1>@question.Title</h1>
-    <h4>@question.Description</h4>
-    @foreach(var comment in question.Comments)
-    {
-        <p>@comment.Description</p>
-    }
+    <div class="question card">
+        <h1 class="card-title title">@question.Title</h1>
+        <div class="questionBar card-body">
+            <div class="group">
+                <i class="far fa-comment"></i>
+                <p>@question.Comments.Count</p>
+            </div>
+            <div class="group">
+                <i class="far fa-arrow-alt-circle-up"></i>
+                <p>@question.Upvotes</p>
+                <i class="far fa-arrow-alt-circle-down"></i>
+                <p>@question.Downvotes</p>
+            </div>
+        </div>
+    </div>
 }

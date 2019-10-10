@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\StageOpdracht\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj": {}
+    "C:\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj": {}
   },
   "projects": {
-    "D:\\StageOpdracht\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj": {
+    "C:\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\StageOpdracht\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj",
+        "projectUniqueName": "C:\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj",
         "projectName": "StackoverflowLight",
-        "projectPath": "D:\\StageOpdracht\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj",
-        "packagesPath": "C:\\Users\\IndyV\\.nuget\\packages\\",
-        "outputPath": "D:\\StageOpdracht\\StackoverflowLight\\StackoverflowLight\\obj\\",
+        "projectPath": "C:\\StackoverflowLight\\StackoverflowLight\\StackoverflowLight.csproj",
+        "packagesPath": "C:\\Users\\Indy\\.nuget\\packages\\",
+        "outputPath": "C:\\StackoverflowLight\\StackoverflowLight\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\IndyV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Indy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -66,16 +66,10 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     }
