@@ -29,7 +29,7 @@ namespace StackoverflowLight.Data
                 await CreateUserAsync(user2, "P@ssword1111");
 
                 Question question1 = new Question("How to build stackoverflow?", "For a project, I need to build a forum with authentication. Which technology/language is best suited for the task?", user1.UserName);
-                Comment comment1 = new Comment(question1, "I believe the best technology is to use ASP.NET MVC! It serves an easy solution for the authentication. Everything is done for you!", user2.UserName);
+                Comment comment1 = new Comment(question1, "I believe the best technology is to use ASP.NET MVC! It serves the best solutionfor authentication!", user2.UserName);
                 context.Questions.Add(question1);
                 context.Comments.Add(comment1);
                 context.SaveChanges();

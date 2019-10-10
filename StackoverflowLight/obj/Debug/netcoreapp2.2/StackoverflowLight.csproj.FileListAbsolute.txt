@@ -68,3 +68,6 @@ C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLi
 C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLight.pdb
 C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLight.csproj.CopyComplete
 C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Question\Index.g.cshtml.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Question\Index.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Question\Create.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Comment\Create.cshtml.g.cs

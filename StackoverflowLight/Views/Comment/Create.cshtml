@@ -1,0 +1,22 @@
+﻿@model StackoverflowLight.Domain.ViewModels.CommentEditViewModel
+@{
+    ViewData["Title"] = "Creating a comment";
+    int questionId = (int)ViewData["questionId"];
+}
+<h1 class="darkText">@ViewData["Title"]</h1>
+<form asp-controller="Comment" asp-action="CreateAsync" asp-route-id="@questionId" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Comment"></label>
+        <textarea asp-for="Comment" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-info" type="submit">Save</button>
+</form>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

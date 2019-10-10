@@ -2,28 +2,34 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<a asp-controller="Question" asp-action="Create">
+    <button class="btn btn-info">Add question</button>
+</a>
 
 @foreach (var question in Model)
 {
     <div class="question card">
-        <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
-            <h1 class="card-title title">@question.Title</h1>
+        <a class="noTxtDecoration" asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+            <div class="titleButton">
+                <h1 class="card-title margin darkText">@question.Title</h1>
+                <i class="fas fa-arrow-alt-circle-right darkText margin"></i>
+            </div>
         </a>
-        <div class="questionBar card-body">
+        <div class="questionBar card-body lightBackground">
 
             <div class="group">
-                <i class="far fa-comment"></i>
-                <p>@question.Comments.Count</p>
+                <i class="far fa-comment text-white"></i>
+                <p class="text-white">@question.Comments.Count</p>
             </div>
             <div class="group">
-                <a asp-controller="Home" asp-action="UpvoteAsync" asp-route-id="@question.QuestionId">
-                <i class="far fa-arrow-alt-circle-up"></i>
+                <a asp-controller="Question" asp-action="UpvoteAsync" asp-route-id="@question.QuestionId">
+                    <i class="far fa-arrow-alt-circle-up @(question.UpvotedBy.Select(user=>user.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
                 </a>
-                <p>@question.UpvotedBy.Count</p>
-                <a asp-controller="Home" asp-action="DownvoteAsync" asp-route-id="@question.QuestionId">
-                    <i class="far fa-arrow-alt-circle-down"></i>
+                <p class="text-white">@question.UpvotedBy.Count</p>
+                <a asp-controller="Question" asp-action="DownvoteAsync" asp-route-id="@question.QuestionId">
+                    <i class="far fa-arrow-alt-circle-down @(question.DownvotedBy.Select(user=>user.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
                 </a>
-                <p>@question.DownvotedBy.Count</p>
+                <p class="text-white">@question.DownvotedBy.Count</p>
             </div>
         </div>
     </div>

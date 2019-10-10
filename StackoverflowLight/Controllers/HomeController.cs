@@ -24,33 +24,9 @@ namespace StackoverflowLight.Controllers
 
         public IActionResult Index()
         {
-            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.UpvotedBy.Count).ToList();
+            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderByDescending(q => q.UpvotedBy.Count).ToList();
 
             return View(questions);
-        }
-
-        public async Task<IActionResult> UpvoteAsync(int id)
-        {
-            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.UpvotedBy.Count).ToList();
-            Question question = questions.Where(q => q.QuestionId == id).FirstOrDefault();
-            IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
-            question.UpvotedBy.Add(user);
-            return View(nameof(Index),questions);
-
-        }
-
-        public async Task<IActionResult> DownvoteAsync(int id)
-        {
-            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.UpvotedBy.Count).ToList();
-            Question question = questions.Where(q => q.QuestionId == id).FirstOrDefault();
-            IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
-            question.DownvotedBy.Add(user);
-            return View(nameof(Index), questions.OrderBy(q => q.UpvotedBy.Count).ToList());
-
-        }
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -54,16 +54,21 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
-
-.questionBar{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-content:center;
-    background-color:#f6f5f6;
-    width:100%;
-    height:50px;
-    padding:10px;
+.question{
+    margin-top:50px;
+}
+.comment{
+    margin-top:30px;
+}
+.questionBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    background-color: #f6f5f6;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
 }
 
 .group {
@@ -73,11 +78,56 @@ body {
     align-items: center;
     font-size: 24px;
 }
-
+.titleButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 24px;
+    cursor:pointer
+}
+.group a {
+    color:
+}
 .group p{
     margin:0;
 }
 
-.title{
-    margin:20px;
+.margin{
+    margin:20px!important;
+}
+
+.darkBackground {
+    background-color: #10069F;
+}
+
+.darkText {
+    color: #10069F !important;
+}
+
+.lightBackground {
+    background-color: #5BC2E7;
+}
+.lightText {
+    color: #5BC2E7;
+}
+
+.noTxtDecoration{
+    text-decoration:none;
+}
+.noTxtDecoration:hover {
+    text-decoration: none;
+}
+
+i{
+    margin-right:10px;
+    margin-left:10px;
+}
+
+.btn-primary {
+    background-color: #10069F !important;
+    border-color: #10069F !important;
+}
+
+h1,h4 {
+    color: #10069F;
 }

@@ -31,12 +31,12 @@ namespace StackoverflowLight.Data.Repositories
 
         public ICollection<Comment> GetAllComments()
         {
-            return comments.ToList();
+            return comments.Include(c=>c.UpvotedBy).Include(c=>c.DownvotedBy).ToList();
         }
 
         public Comment GetCommentById(int id)
         {
-            return comments.Where(c => c.CommentId == id).FirstOrDefault();
+            return comments.Include(c => c.UpvotedBy).Include(c => c.DownvotedBy).Where(c => c.CommentId == id).FirstOrDefault();
         }
 
         public void SaveChanges()

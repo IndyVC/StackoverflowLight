@@ -3,8 +3,9 @@
     "",
     "\\StackoverflowLight",
     "\\StackoverflowLight\\Data",
-    "\\StackoverflowLight\\Data\\Mappers"
+    "\\StackoverflowLight\\Data\\Mappers",
+    "\\StackoverflowLight\\Views"
   ],
-  "SelectedNode": "\\StackoverflowLight\\Data\\Mappers\\UserMapper.cs",
+  "SelectedNode": "\\StackoverflowLight.sln",
   "PreviewInSolutionExplorer": false
 }
