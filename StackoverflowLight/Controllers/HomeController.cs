@@ -31,19 +31,21 @@ namespace StackoverflowLight.Controllers
 
         public async Task<IActionResult> UpvoteAsync(int id)
         {
-            Question question = questionRepo.GetQuestionById(id);
+            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.UpvotedBy.Count).ToList();
+            Question question = questions.Where(q => q.QuestionId == id).FirstOrDefault();
             IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
             question.UpvotedBy.Add(user);
-            return View(nameof(Index));
+            return View(nameof(Index),questions);
 
         }
 
         public async Task<IActionResult> DownvoteAsync(int id)
         {
-            Question question = questionRepo.GetQuestionById(id);
+            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.UpvotedBy.Count).ToList();
+            Question question = questions.Where(q => q.QuestionId == id).FirstOrDefault();
             IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
             question.DownvotedBy.Add(user);
-            return View(nameof(Index));
+            return View(nameof(Index), questions.OrderBy(q => q.UpvotedBy.Count).ToList());
 
         }
         public IActionResult Privacy()

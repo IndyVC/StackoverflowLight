@@ -6,20 +6,23 @@
 @foreach (var question in Model)
 {
     <div class="question card">
-        <h1 class="card-title title">@question.Title</h1>
+        <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+            <h1 class="card-title title">@question.Title</h1>
+        </a>
         <div class="questionBar card-body">
+
             <div class="group">
                 <i class="far fa-comment"></i>
                 <p>@question.Comments.Count</p>
             </div>
             <div class="group">
-                <button asp-controller="Home" asp-action="Upvote" asp-route-id="@question.QuestionId">
+                <a asp-controller="Home" asp-action="UpvoteAsync" asp-route-id="@question.QuestionId">
                 <i class="far fa-arrow-alt-circle-up"></i>
-                </button>
+                </a>
                 <p>@question.UpvotedBy.Count</p>
-                <button asp-controller="Home" asp-action="Downvote" asp-route-id="@question.QuestionId">
+                <a asp-controller="Home" asp-action="DownvoteAsync" asp-route-id="@question.QuestionId">
                     <i class="far fa-arrow-alt-circle-down"></i>
-                </button>
+                </a>
                 <p>@question.DownvotedBy.Count</p>
             </div>
         </div>
