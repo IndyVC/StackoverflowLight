@@ -13,14 +13,13 @@ namespace StackoverflowLight.Data.Mappers
         public void Configure(EntityTypeBuilder<Question> builder)
         {
             builder.ToTable("Questions");
-            builder.HasKey(t => t.QuestionId);
             builder.Property(t => t.Title);
             builder.Property(t => t.Description);
 
 
             builder.HasMany(q => q.Comments).WithOne(c => c.Question).IsRequired(false);
-            builder.HasMany(q => q.UpvotedBy);
-            builder.HasMany(q => q.DownvotedBy);
+            builder.HasMany(q => q.Upvotes).WithOne(u => (Question)u.Post);
+            builder.HasMany(q => q.Downvotes).WithOne(d => (Question)d.Post);
         }
 
        

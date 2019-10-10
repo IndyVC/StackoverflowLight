@@ -24,7 +24,7 @@ namespace StackoverflowLight.Controllers
 
         public IActionResult Index()
         {
-            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderByDescending(q => q.UpvotedBy.Count).ToList();
+            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderByDescending(q => q.Upvotes.Count).ToList();
 
             return View(questions);
         }

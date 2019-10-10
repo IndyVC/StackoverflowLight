@@ -13,7 +13,7 @@
             <p class="text-white">@Model.Comments.Count</p>
         </div>
         <div class="group" style="font-size:20px;">
-            <a asp-controller="Comment" asp-action="Create" asp-route-id="@Model.QuestionId">
+            <a asp-controller="Comment" asp-action="Create" asp-route-id="@Model.PostId">
                 <div class="titleButton">
                     <i class="fas fa-plus text-white"></i>
                     <p class="text-white">Add comment</p>
@@ -21,14 +21,14 @@
             </a>
         </div>
         <div class="group">
-            <a asp-controller="Question" asp-action="UpvoteAsync" asp-route-id="@Model.QuestionId">
-                <i class="far fa-arrow-alt-circle-up @(Model.UpvotedBy.Select(user=>user.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
+            <a asp-controller="Question" asp-action="UpvoteAsync" asp-route-id="@Model.PostId">
+                <i class="far fa-arrow-alt-circle-up @(Model.Upvotes.Select(user=>user.User.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
             </a>
-            <p class="text-white">@Model.UpvotedBy.Count</p>
-            <a asp-controller="Question" asp-action="DownvoteAsync" asp-route-id="@Model.QuestionId">
-                <i class="far fa-arrow-alt-circle-down @(Model.DownvotedBy.Select(user=>user.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
+            <p class="text-white">@Model.Upvotes.Count</p>
+            <a asp-controller="Question" asp-action="DownvoteAsync" asp-route-id="@Model.PostId">
+                <i class="far fa-arrow-alt-circle-down @(Model.Downvotes.Select(user=>user.User.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
             </a>
-            <p class="text-white">@Model.DownvotedBy.Count</p>
+            <p class="text-white">@Model.Downvotes.Count</p>
         </div>
     </div>
 </div>
@@ -41,14 +41,14 @@
         <p class="card-text margin dark-grey-text">~ @comment.Username</p>
         <div class="questionBar card-body lightBackground">
             <div class="group">
-                <a asp-controller="Comment" asp-action="UpvoteAsync" asp-route-commentId="@comment.CommentId" asp-route-questionId="@Model.QuestionId">
-                    <i class="far fa-arrow-alt-circle-up @(comment.UpvotedBy.Select(user=>user.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
+                <a asp-controller="Comment" asp-action="UpvoteAsync" asp-route-commentId="@comment.PostId" asp-route-questionId="@Model.PostId">
+                    <i class="far fa-arrow-alt-circle-up @(comment.Upvotes.Select(user=>user.User.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
                 </a>
-                <p class="text-white">@comment.UpvotedBy.Count</p>
-                <a asp-controller="Comment" asp-action="DownvoteAsync" asp-route-commentId="@comment.CommentId" asp-route-questionId="@Model.QuestionId">
-                    <i class="far fa-arrow-alt-circle-down @(comment.DownvotedBy.Select(user=>user.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
+                <p class="text-white">@comment.Upvotes.Count</p>
+                <a asp-controller="Comment" asp-action="DownvoteAsync" asp-route-commentId="@comment.PostId" asp-route-questionId="@Model.PostId">
+                    <i class="far fa-arrow-alt-circle-down @(comment.Downvotes.Select(user=>user.User.UserName).Contains(User.Identity.Name)?"darkText":"text-white")"></i>
                 </a>
-                <p class="text-white">@comment.DownvotedBy.Count</p>
+                <p class="text-white">@comment.Downvotes.Count</p>
             </div>
         </div>
     </div>

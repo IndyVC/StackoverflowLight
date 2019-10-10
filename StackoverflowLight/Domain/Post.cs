@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using StackoverflowLight.Domain.ManyToMany;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace StackoverflowLight.Domain
         #endregion
 
         #region properties
+        public int PostId { get; set; }
         public string Description {
             get {
                 return this._description;
@@ -28,16 +30,16 @@ namespace StackoverflowLight.Domain
                 }
             }
         }
-        public ISet<IdentityUser> UpvotedBy { get; set; }
-        public ISet<IdentityUser> DownvotedBy { get; set; }
+        public IList<UserUp> Upvotes { get; set; }
+        public IList<UserDown> Downvotes { get; set; }
         public string Username { get; set; }
         #endregion
 
         #region constructor
         protected Post(string description, string username)
         {
-            UpvotedBy = new HashSet<IdentityUser>();
-            DownvotedBy = new HashSet<IdentityUser>();
+            Upvotes = new List<UserUp>();
+            Downvotes = new List<UserDown>();
             Description = description;
             Username = username;
         } 

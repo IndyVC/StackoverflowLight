@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StackoverflowLight.Domain;
+using StackoverflowLight.Domain.ManyToMany;
 using StackoverflowLight.Domain.Repositories;
 using System;
 using System.Collections.Generic;
@@ -23,19 +24,31 @@ namespace StackoverflowLight.Data.Repositories
             questions.Add(question);
         }
 
+        public void DeleteDownvote(UserDown downvote)
+        {
+            context.Downvotes.Remove(downvote);
+
+        }
+
         public void DeleteQuestion(Question question)
         {
             questions.Remove(question);
         }
 
+        public void DeleteUpvote(UserUp upvote)
+        {
+            context.Upvotes.Remove(upvote);
+
+        }
+
         public ICollection<Question> GetAllQuestions()
         {
-            return questions.Include(q=>q.Comments).Include(q=>q.UpvotedBy).Include(q=>q.DownvotedBy).ToList();
+            return questions.Include(q=>q.Comments).Include(q=>q.Upvotes).Include(q=>q.Downvotes).ToList();
         }
 
         public Question GetQuestionById(int id)
         {
-            return questions.Include(q=>q.Comments).Include(q => q.UpvotedBy).Include(q => q.DownvotedBy).Where(q => q.QuestionId == id).FirstOrDefault();
+            return questions.Include(q=>q.Comments).Include(q => q.Upvotes).Include(q => q.Downvotes).Where(q => q.PostId == id).FirstOrDefault();
         }
 
         public void SaveChanges()

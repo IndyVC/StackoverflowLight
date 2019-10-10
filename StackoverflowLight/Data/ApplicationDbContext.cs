@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using StackoverflowLight.Data.Mappers;
 using StackoverflowLight.Domain;
+using StackoverflowLight.Domain.ManyToMany;
 
 namespace StackoverflowLight.Data
 {
@@ -12,7 +13,9 @@ namespace StackoverflowLight.Data
     {
         public DbSet<Question> Questions { get; set; }
         public DbSet<Comment> Comments { get; set; }
-
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<UserUp> Upvotes { get; set; }
+        public DbSet<UserDown> Downvotes { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

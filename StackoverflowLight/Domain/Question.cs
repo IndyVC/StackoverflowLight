@@ -13,7 +13,6 @@ namespace StackoverflowLight.Domain
 
 
         #region properties
-        public int QuestionId { get; set; }
         public string Title {
             get {
                 return this._title;

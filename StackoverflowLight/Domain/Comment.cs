@@ -8,7 +8,6 @@ namespace StackoverflowLight.Domain
     public class Comment:Post
     {
         #region properties
-        public int CommentId { get; set; }
         public Question Question { get; set; }
         #endregion
         #region constructor

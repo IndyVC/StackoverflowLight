@@ -13,11 +13,10 @@ namespace StackoverflowLight.Data.Mappers
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
             builder.ToTable("Comments");
-            builder.HasKey(t => t.CommentId);
 
             builder.Property(t => t.Description);
-            builder.HasMany(q => q.UpvotedBy);
-            builder.HasMany(q => q.DownvotedBy);
+            builder.HasMany(q => q.Upvotes).WithOne(u=>(Comment)u.Post);
+            builder.HasMany(q => q.Downvotes).WithOne(d=>(Comment)d.Post);
 
         }
     }

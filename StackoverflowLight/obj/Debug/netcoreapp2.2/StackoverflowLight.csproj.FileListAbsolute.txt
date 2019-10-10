@@ -71,3 +71,8 @@ C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Que
 D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Question\Index.cshtml.g.cs
 D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Question\Create.cshtml.g.cs
 D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Comment\Create.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\StageOpdracht\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
