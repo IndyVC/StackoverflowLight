@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StackoverflowLight.Domain;
 using StackoverflowLight.Domain.Repositories;
@@ -13,19 +14,38 @@ namespace StackoverflowLight.Controllers
     public class HomeController : Controller
     {
         private readonly IQuestionRepository questionRepo;
+        private readonly UserManager<IdentityUser> userManager;
 
-        public HomeController(IQuestionRepository questionRepository)
+        public HomeController(IQuestionRepository questionRepository, UserManager<IdentityUser> userManager)
         {
             this.questionRepo = questionRepository;
+            this.userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.Upvotes).ToList();
+            ICollection<Question> questions = questionRepo.GetAllQuestions().OrderBy(q => q.UpvotedBy.Count).ToList();
 
             return View(questions);
         }
 
+        public async Task<IActionResult> UpvoteAsync(int id)
+        {
+            Question question = questionRepo.GetQuestionById(id);
+            IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
+            question.UpvotedBy.Add(user);
+            return View(nameof(Index));
+
+        }
+
+        public async Task<IActionResult> DownvoteAsync(int id)
+        {
+            Question question = questionRepo.GetQuestionById(id);
+            IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
+            question.DownvotedBy.Add(user);
+            return View(nameof(Index));
+
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -13,10 +13,14 @@
                 <p>@question.Comments.Count</p>
             </div>
             <div class="group">
+                <button asp-controller="Home" asp-action="Upvote" asp-route-id="@question.QuestionId">
                 <i class="far fa-arrow-alt-circle-up"></i>
-                <p>@question.Upvotes</p>
-                <i class="far fa-arrow-alt-circle-down"></i>
-                <p>@question.Downvotes</p>
+                </button>
+                <p>@question.UpvotedBy.Count</p>
+                <button asp-controller="Home" asp-action="Downvote" asp-route-id="@question.QuestionId">
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                </button>
+                <p>@question.DownvotedBy.Count</p>
             </div>
         </div>
     </div>

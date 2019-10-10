@@ -67,3 +67,4 @@ C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLi
 C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLight.dll
 C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLight.pdb
 C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\StackoverflowLight.csproj.CopyComplete
+C:\StackoverflowLight\StackoverflowLight\obj\Debug\netcoreapp2.2\Razor\Views\Question\Index.g.cshtml.cs

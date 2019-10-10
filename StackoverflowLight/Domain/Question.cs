@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 
@@ -29,6 +30,7 @@ namespace StackoverflowLight.Domain
             }
         }
         public ICollection<Comment> Comments { get; set; }
+ 
         #endregion
         #region construcor
         public Question() : base("fill", "fill") { }

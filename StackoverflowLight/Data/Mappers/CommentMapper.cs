@@ -16,8 +16,8 @@ namespace StackoverflowLight.Data.Mappers
             builder.HasKey(t => t.CommentId);
 
             builder.Property(t => t.Description);
-            builder.Property(t => t.Downvotes);
-            builder.Property(t => t.Upvotes);
+            builder.HasMany(q => q.UpvotedBy);
+            builder.HasMany(q => q.DownvotedBy);
 
         }
     }

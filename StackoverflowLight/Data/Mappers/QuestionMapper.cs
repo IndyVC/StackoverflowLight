@@ -14,13 +14,13 @@ namespace StackoverflowLight.Data.Mappers
         {
             builder.ToTable("Questions");
             builder.HasKey(t => t.QuestionId);
-
             builder.Property(t => t.Title);
             builder.Property(t => t.Description);
-            builder.Property(t => t.Downvotes);
-            builder.Property(t => t.Upvotes);
+
 
             builder.HasMany(q => q.Comments).WithOne(c => c.Question).IsRequired(false);
+            builder.HasMany(q => q.UpvotedBy);
+            builder.HasMany(q => q.DownvotedBy);
         }
 
        
