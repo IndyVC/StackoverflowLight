@@ -88,7 +88,7 @@ namespace StackoverflowLight.Controllers
             }
             else
             {
-                RemoveDownvote(user, question);
+                question.Downvotes.Add(new UserDown(question, user));
             }
             questionRepo.UpdateQuestion(question);
             questionRepo.SaveChanges();
