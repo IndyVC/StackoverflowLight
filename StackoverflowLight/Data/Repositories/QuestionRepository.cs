@@ -43,12 +43,12 @@ namespace StackoverflowLight.Data.Repositories
 
         public ICollection<Question> GetAllQuestions()
         {
-            return questions.Include(q=>q.Comments).Include(q=>q.Upvotes).Include(q=>q.Downvotes).ToList();
+            return questions.Include(q => q.Comments).ThenInclude(c => c.Upvotes).Include(q => q.Comments).ThenInclude(c => c.Downvotes).Include(q=>q.Upvotes).ThenInclude(u=>u.User).Include(q=>q.Downvotes).ThenInclude(u => u.User).ToList();
         }
 
         public Question GetQuestionById(int id)
         {
-            return questions.Include(q=>q.Comments).Include(q => q.Upvotes).Include(q => q.Downvotes).Where(q => q.PostId == id).FirstOrDefault();
+            return questions.Include(q=>q.Comments).ThenInclude(c=>c.Upvotes).Include(q=>q.Comments).ThenInclude(c=>c.Downvotes).Include(q => q.Upvotes).ThenInclude(u => u.User).Include(q => q.Downvotes).ThenInclude(u => u.User).FirstOrDefault(q => q.PostId == id);
         }
 
         public void SaveChanges()

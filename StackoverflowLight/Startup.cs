@@ -49,7 +49,8 @@ namespace StackoverflowLight
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<IAppUserRepository, AppUserRepository>();
-
+            services.AddScoped<IUpvoteRepository, UpvoteRepository>();
+            services.AddScoped<IDownvoteRepository, DownvoteRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
         }

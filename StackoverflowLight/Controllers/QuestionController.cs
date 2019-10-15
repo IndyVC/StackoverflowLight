@@ -154,8 +154,7 @@ namespace StackoverflowLight.Controllers
 
         private async Task<AppUser> GetAppUser()
         {
-            IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
-            AppUser appUser = appUserRepo.GetAppUserByUserName(user.UserName);
+            AppUser appUser = appUserRepo.GetAppUserByUserName(User.Identity.Name);
             return appUser;
         }
 

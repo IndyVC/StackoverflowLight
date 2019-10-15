@@ -47,20 +47,20 @@ namespace StackoverflowLight.Controllers
             Question question = questionRepo.GetQuestionById(questionId);
             Comment comment = commentRepo.GetCommentById(commentId);
             AppUser user = await GetAppUser();
-            if (DownvotesContains(question.Downvotes, user))
+            if (DownvotesContains(comment.Downvotes, user))
             {
                 RemoveDownvote(user, comment);
             }
-            if (UpvotesContains(question.Upvotes, user))
+            if (UpvotesContains(comment.Upvotes, user))
             {
                 RemoveUpvote(user, comment);
             }
             else
             {
-                comment.Upvotes.Add(new UserUp(question, user));
+                comment.Upvotes.Add(new UserUp(comment, user));
 
             }
-            commentRepo.UpdateComment(comment);
+            questionRepo.UpdateQuestion(question);
             commentRepo.SaveChanges();
             return RedirectToAction("Index", "Question", new { id = question.PostId });
         }
@@ -70,19 +70,19 @@ namespace StackoverflowLight.Controllers
             Question question = questionRepo.GetQuestionById(questionId);
             Comment comment = commentRepo.GetCommentById(commentId);
             AppUser user = await GetAppUser();
-            if (UpvotesContains(question.Upvotes, user))
+            if (UpvotesContains(comment.Upvotes, user))
             {
                 RemoveUpvote(user, comment);
             }
-            if (DownvotesContains(question.Downvotes, user))
+            if (DownvotesContains(comment.Downvotes, user))
             {
                 RemoveDownvote(user, comment);
             }
             else
             {
-                comment.Downvotes.Add(new UserDown(question, user));
+                comment.Downvotes.Add(new UserDown(comment, user));
             }
-            commentRepo.UpdateComment(comment);
+            questionRepo.UpdateQuestion(question);
             commentRepo.SaveChanges();
             return RedirectToAction("Index", "Question", new { id = question.PostId });
         }
@@ -145,8 +145,7 @@ namespace StackoverflowLight.Controllers
 
         private async Task<AppUser> GetAppUser()
         {
-            IdentityUser user = await userManager.GetUserAsync(HttpContext.User);
-            AppUser appUser = appUserRepo.GetAppUserByUserName(user.UserName);
+            AppUser appUser = appUserRepo.GetAppUserByUserName(User.Identity.Name);
             return appUser;
         }
 

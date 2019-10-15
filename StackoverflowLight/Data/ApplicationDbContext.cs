@@ -26,6 +26,8 @@ namespace StackoverflowLight.Data
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new QuestionMapper());
             builder.ApplyConfiguration(new CommentMapper());
+            builder.ApplyConfiguration(new UserUpMapper());
+            builder.ApplyConfiguration(new UserDownMapper());
         }
 
     }

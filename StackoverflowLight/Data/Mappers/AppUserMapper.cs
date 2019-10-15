@@ -14,6 +14,7 @@ namespace StackoverflowLight.Data.Mappers
         {
             builder.ToTable("AppUsers");
             builder.HasKey(t => t.AppUserId);
+            builder.Property(t => t.UserName);
             builder.HasMany(t => t.Upvotes).WithOne(u => u.User);
             builder.HasMany(t => t.Downvotes).WithOne(u => u.User);
         }

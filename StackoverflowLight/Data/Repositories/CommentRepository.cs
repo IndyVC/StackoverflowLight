@@ -42,12 +42,12 @@ namespace StackoverflowLight.Data.Repositories
 
         public ICollection<Comment> GetAllComments()
         {
-            return comments.Include(c=>c.Upvotes).Include(c=>c.Downvotes).ToList();
+            return comments.Include(c=>c.Upvotes).ThenInclude(u => u.User).Include(c=>c.Downvotes).ThenInclude(u => u.User).ToList();
         }
 
         public Comment GetCommentById(int id)
         {
-            return comments.Include(c => c.Upvotes).Include(c => c.Downvotes).Where(c => c.PostId == id).FirstOrDefault();
+            return comments.Include(c => c.Upvotes).ThenInclude(u => u.User).Include(c => c.Downvotes).ThenInclude(u => u.User).FirstOrDefault(c => c.PostId == id);
         }
 
         public void SaveChanges()
